@@ -4,6 +4,7 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    meta name="viewport" content="width=device-width"
     sass:
       body
         padding-top: 70px
@@ -30,6 +31,9 @@ html
               ul.dropdown-menu
                 li
                   a href="#" アカウント管理
+                - if logined?
+                  li
+                    a href=logout_path ログアウト
 
                 li.divider role="separator"
                 li.dropdown-header 困ったとき
@@ -37,6 +41,10 @@ html
                   a href="#" 不具合をみつけた場合
                 li
                   a href="#" 操作方法が分からない場合
+                li.divider role="separator"
+                  li.dropdown-header テスト用
+                  li
+                    a href=load_test_data_path テストデータをロードする
     div.container.theme-showcase role="main" = yield
     .row
       hr
