@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     login_id = params[:login_id]
     password = params[:password]
 
-    if User.authorized_user(login_id, password).present?
+    if name.empty? || login_id.empty? || password.empty? || User.authorized_user(login_id, password).present?
       redirect_to new_user_path
     else
       session[:user] = User.create(name: name, login_id: login_id, password: password)
