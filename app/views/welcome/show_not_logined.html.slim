@@ -1,11 +1,21 @@
 .row
   div style="text-align: center"
-    = image_tag('taxi-share-logo.png')
+    p
+      = image_tag('taxi-share-logo.png')
 
-    p style="font-size: x-large"
+    button#help_link.btn.btn-default type="button"
+      span.glyphicon.glyphicon-user aria-hidden="true"
+      | これは何？
+    p#help_message style="font-size: large; background-color:DDDDDD; display: none;"
       | タクシーの相乗りで困ったことありませんか？
       br
-      | タクしぇあで相乗り相手を見つけよう！
+      | 「タクしぇあ」はタクシーの相乗りを支援します！
+      | ユーザ登録をして、直ぐに使い始めよう！
+    javascript:
+      $("#help_link").click(function() {
+        $("#help_link").hide();
+        $("#help_message").show(500);
+      });
 
     p
       = form_tag login_users_path
@@ -15,7 +25,7 @@
         .form-group
           label for="password" Password
           input.form-control type="password" name="password" id="password" placeholder="Password"
-        button.btn.btn-default type="submit" ログイン
+        button.btn.btn-primary type="submit" ログイン
 
     hr
     p
