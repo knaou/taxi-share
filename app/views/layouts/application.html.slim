@@ -4,6 +4,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    sass:
+      body
+        padding-top: 70px
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -13,31 +16,29 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href=root_path タクしぇあ
+          a.navbar-brand href=root_path タクしぇあγ
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
             li.active
-              a href="#" Home
+              a href=root_url 相乗り相手を探す
             li
-              a href="#about" About
-            li
-              a href="#contact" Contact
+              a href="#about" 相乗り相手を募集する
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-                | Dropdown
+                | その他
                 span.caret
               ul.dropdown-menu
                 li
-                  a href="#" Action
-                li
-                  a href="#" Another action
-                li
-                  a href="#" Something else here
-                li.divider role="separator"
-                li.dropdown-header Nav header
-                li
-                  a href="#" Separated link
-                li
-                  a href="#" One more separated link
-    div.container.theme-showcase role="main" = yield
+                  a href="#" アカウント管理
 
+                li.divider role="separator"
+                li.dropdown-header 困ったとき
+                li
+                  a href="#" 不具合をみつけた場合
+                li
+                  a href="#" 操作方法が分からない場合
+    div.container.theme-showcase role="main" = yield
+    .row
+      hr
+      div style="text-align: center"
+        Copyright (C) 2016 TAXI-SHARE All Right Reserved.

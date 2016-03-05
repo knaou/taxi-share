@@ -1,9 +1,13 @@
-div style="text-align: center"
+.row
+  div style="text-align: center"
+    = image_tag('taxi-share-logo.png')
 
-.jumbotron
-    h1 タクしぇあ
-    p タクシーの相乗りで困ったことありませんか？ タクしぇあそのお困りを解決します！
+    p style="font-size: x-large"
+      | タクシーの相乗りで困ったことありませんか？
+      br
+      | タクしぇあで相乗り相手を見つけよう！
 
-div style="text-align: center"
-    Copyright (C) 2016 TAXI-SHARE All Right Reserved.
-    
+    p
+      button.btn.btn-primary.btn-lg type="button"
+        span.glyphicon.glyphicon-user aria-hidden="true"
+        | 今すぐ相手を見つけて始める！
