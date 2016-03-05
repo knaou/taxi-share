@@ -1,0 +1,14 @@
+.row
+  = form_tag users_path
+    .form-group
+      label for="login_id" 表示名
+      input.form-control name="name" id="name" placeholder="表示名"
+    .form-group
+      label for="login_id" ログインID
+      input.form-control name="login_id" id="login_id" placeholder="ログインID"
+    .form-group
+      label for="password" Password
+      input.form-control type="password" name="password" id="password" placeholder="Password"
+    button.btn.btn-default type="submit" 作成
+
+  users#create

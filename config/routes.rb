@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root 'welcome#show'
 
   get 'load_test_data' => 'demos#load_test_data'
-  post 'login' => 'users#login'
-  get 'logout' => 'users#logout'
+
+  resources :users do
+    collection do
+      post :login
+      get :logout
+    end
+
+  end
 end
