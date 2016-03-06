@@ -1,0 +1,16 @@
+.row
+  #map_canvas style="width:90%; height:320px;"
+.row
+  p エリア一覧 (TODO: 数が増えたら検索欲しい)
+  p
+    - @areas.each do |area|
+      | [
+      = link_to area.position, area_path(area)
+      | ]
+    #points
+
+javascript:
+  $(function(){
+    var map = new GMap($('#map_canvas'));
+    map.init();
+  });

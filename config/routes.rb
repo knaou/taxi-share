@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   get 'load_test_data' => 'demos#load_test_data'
 
+  resources :areas
+
   resources :users do
     collection do
       post :login
       get :logout
     end
-
   end
 end

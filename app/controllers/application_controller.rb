@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    if logined?
-      yield
-    else
+    if ! logined?
       redirect_to root_path
     end
   end

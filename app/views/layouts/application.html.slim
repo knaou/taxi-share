@@ -3,6 +3,7 @@ html
     title Taxi-Share
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"
     = csrf_meta_tags
     meta name="viewport" content="width=device-width"
     sass:
@@ -30,7 +31,7 @@ html
                 span.caret
               ul.dropdown-menu
                 li
-                  a href="#" アカウント管理
+                  a href="#" アカウント管理(DUMMY)
                 - if logined?
                   li
                     a href=logout_users_path ログアウト
@@ -38,9 +39,9 @@ html
                 li.divider role="separator"
                 li.dropdown-header 困ったとき
                 li
-                  a href="#" 不具合をみつけた場合
+                  a href="#" 不具合をみつけた場合(DUMMY)
                 li
-                  a href="#" 操作方法が分からない場合
+                  a href="#" 操作方法が分からない場合(DUMMY)
                 li.divider role="separator"
                   li.dropdown-header テスト用
                   li

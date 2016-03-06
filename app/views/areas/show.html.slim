@@ -1,0 +1,17 @@
+.row
+  #map_canvas style="width:90%; height:320px;"
+.row
+  p #{@area.position}のポイント一覧 (TODO: 数が増えたら検索欲しい)
+  p
+    - @points.each do |point|
+      | [
+      = point.position
+      | ]
+    #points
+
+  = link_to '戻る', areas_path
+
+javascript:
+  $(function(){
+    new GMap($('#map_canvas')).init();
+  });
