@@ -9,6 +9,22 @@
       | ]
     #points
 
+  p このエリアで待っている人
+  .box
+    - @requirements.each do |req|
+      .media
+        .media-left.media-middle
+          a href="#"
+            = image_tag 'people.png', class: 'media-object'
+        .media-body
+          h4.media-heading #{req.user.name}さん
+          | #{req.to_area.position} に向かっております
+          br
+          | 相乗した場合
+          span style="color: #990000;" 800円 (-300円)
+          | で利用できます
+
+
   = link_to '戻る', areas_path
 
 javascript:

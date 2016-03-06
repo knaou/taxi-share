@@ -7,13 +7,15 @@ class DemosController < ApplicationController
       User.delete_all
 
       areas = [Area.create(
-         position: '戸塚駅東口'
+         position: '戸塚駅'
       ),Area.create(
-          position: '戸塚駅西口'
+          position: '横浜駅'
       ),Area.create(
           position: '立場駅前'
       ),Area.create(
           position: '上大岡駅前'
+      ),Area.create(
+          position: '六ッ川寮'
       )]
 
       areas.each do |area|
@@ -29,6 +31,21 @@ class DemosController < ApplicationController
           User.create(name: 'ゲスト', login_id: 'guest', password: 'pass')
       ]
 
+      30.times do
+        f = areas.sample()
+        t = areas.sample()
+        if t != f
+          Requirement.create(
+                         status: 'INITIAL',
+                         user: users.sample(),
+                         from_area: f,
+                         to_area: t,
+                         from_point: f.points.sample(),
+                         to_point: t.points.sample()
+          )
+        end
+
+      end
     end
 
     redirect_to root_path

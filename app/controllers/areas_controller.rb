@@ -8,5 +8,6 @@ class AreasController < ApplicationController
   def show
     @area = Area.find(params[:id])
     @points = @area.points
+    @requirements = Requirement.where(from_area: @area).order('to_area_id ASC')
   end
 end
