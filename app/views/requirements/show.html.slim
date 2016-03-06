@@ -1,0 +1,22 @@
+.row
+  .media
+    .media-left.media-middle
+      a href="#"
+        = image_tag 'people.png', class: 'media-object'
+    .media-body
+      h4.media-heading #{@requirement.from_area.position} -> #{@requirement.to_area.position}
+      br
+      form onsubmit="alert('未実装！')"
+        button.btn.btn-default type="submit" 取り消す
+.row
+  - @requirement.assignments.each do |ass|
+    br
+    p
+      = ass.user.name
+      | から相乗り申請がきています
+      br
+      = localize_status(ass.status)
+      = form_tag reply_assignment_path(ass)
+        button.btn.btn-default type="submit" name="type" value="APPROVE" 承諾する
+        button.btn.btn-default type="submit" name="type" value="DECLINE" 拒否する
+

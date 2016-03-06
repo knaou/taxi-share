@@ -1,4 +1,6 @@
 class AssignmentsController < ApplicationController
+  before_filter :check_user
+
   def create
     ActiveRecord::Base.transaction do
       req = Requirement.find(params[:requirement_id])
@@ -17,6 +19,26 @@ class AssignmentsController < ApplicationController
 
       ass.destroy
     end
+  end
+
+  def reply
+    ActiveRecord::Base.transaction do
+      ass = Assignment.find(params[:id])
+      type = params[:type]
+      raise "Unexpected" if ass.nil? || ass.requirement.user != current_user_as_object
+      s = case type
+            when 'APPROVE'
+              'APPROVED'
+            when 'DECLINE'
+              'DECLINED'
+            else
+              raise "Unexpected"
+          end
+      ass.status = s
+      ass.save!
+    end
+
+    redirect_to root_path
   end
 
   def show

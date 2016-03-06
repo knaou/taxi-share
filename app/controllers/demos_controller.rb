@@ -31,21 +31,21 @@ class DemosController < ApplicationController
           User.create(name: 'ゲスト', login_id: 'guest', password: 'pass')
       ]
 
-      30.times do
-        f = areas.sample()
-        t = areas.sample()
-        if t != f
-          Requirement.create(
-                         status: 'INITIAL',
-                         user: users.sample(),
-                         from_area: f,
-                         to_area: t,
-                         from_point: f.points.sample(),
-                         to_point: t.points.sample()
-          )
-        end
-
-      end
+      # 30.times do
+      #   f = areas.sample()
+      #   t = areas.sample()
+      #   if t != f
+      #     Requirement.create(
+      #                    status: 'INITIAL',
+      #                    user: users.sample(),
+      #                    from_area: f,
+      #                    to_area: t,
+      #                    from_point: f.points.sample(),
+      #                    to_point: t.points.sample()
+      #     )
+      #   end
+      #
+      # end
     end
 
     redirect_to root_path

@@ -13,7 +13,7 @@ module ApplicationHelper
         'まだ許可されていません'
       when 'APPROVED'
         '許可されました'
-      when 'DECLINE'
+      when 'DECLINED'
         '取り下げられました'
     end
   end

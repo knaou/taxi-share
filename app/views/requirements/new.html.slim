@@ -1,0 +1,15 @@
+.row
+  p すごいやっつけUIで済みません＞＜
+  = form_tag requirements_path
+    p
+      | From:
+      = select_tag 'from',
+              options_for_select(@areas.map{|area| [area.position, area.id]})
+      | TO:
+      = select_tag 'to',
+              options_for_select(@areas.map{ |area| [area.position, area.id] })
+    p
+      | Date:
+      input type="datetime" name="date" value=@date
+    p
+      input type="submit"

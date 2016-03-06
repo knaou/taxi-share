@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :assignments
+  resources :assignments do
+    member do
+      post :reply
+    end
+  end
+  resources :requirements
 
 end
