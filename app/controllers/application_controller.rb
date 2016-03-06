@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
     session[:user]
   end
 
+  def current_user_as_object
+    user = current_user
+    if user
+      User.find_by_login_id(user['login_id'])
+    else
+      nil
+    end
+  end
+
   def logined?
     current_user.present?
   end

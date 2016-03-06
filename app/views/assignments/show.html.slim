@@ -1,0 +1,9 @@
+p
+  = image_tag 'people.png', class: 'media-object'
+p
+  | 予約の状態
+  br
+  = localize_status(@assignment.status)
+  br
+  form onsubmit="alert('未実装！')"
+    button.btn.btn-default type="submit" 相乗りをキャンセルする
