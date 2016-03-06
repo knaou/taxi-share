@@ -4,7 +4,10 @@ class DemosController < ApplicationController
     ActiveRecord::Base.transaction do
       AreaPoint.delete_all
       Area.delete_all
+      Assignment.delete_all
+      Requirement.delete_all
       User.delete_all
+
 
       areas = [Area.create(
           position: '戸塚駅'
