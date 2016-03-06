@@ -23,8 +23,7 @@ class RequirementsController < ApplicationController
                            from_area: from,
                            to_area: to,
                            from_point: from.points.sample(),
-                           to_point: to.points.sample(),
-                           date: date
+                           to_point: to.points.sample()
       )
 
       redirect_to root_path
